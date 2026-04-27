@@ -17,7 +17,7 @@ function Contact() {
     e.preventDefault();
 
     try {
-      await axios.post("http://localhost:8081/api/messages", form);
+      await axios.post("https://fsad-backend-final-epfs.onrender.com/api/messages", form);
 
       alert("Message stored in database ✅");
 

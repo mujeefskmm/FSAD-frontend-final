@@ -39,7 +39,7 @@ function Login() {
     if (!valid) return;
 
     try {
-      const res = await axios.post("http://localhost:8081/api/auth/login", {
+      const res = await axios.post("https://fsad-backend-final-epfs.onrender.com/api/auth/login", {
         email,
         password,
       });

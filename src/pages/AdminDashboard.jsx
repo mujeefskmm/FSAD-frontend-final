@@ -25,7 +25,7 @@ function AdminDashboard() {
 
   // ✅ FETCH WORKSHOPS
   const fetchWorkshops = async () => {
-    const res = await axios.get("http://localhost:8081/api/workshops");
+    const res = await axios.get("https://fsad-backend-final-epfs.onrender.com/api/workshops");
     setWorkshops(res.data);
 
     setStats(prev => ({
@@ -37,7 +37,7 @@ function AdminDashboard() {
   // 🔥 UPDATED: FETCH USERS + ADMINS SEPARATELY
   const fetchUsers = async () => {
     try {
-      const res = await axios.get("http://localhost:8081/api/users");
+      const res = await axios.get("https://fsad-backend-final-epfs.onrender.com/api/users");
 
       const users = res.data.filter(u => u.role !== "admin").length;
       const admins = res.data.filter(u => u.role === "admin").length;
@@ -56,7 +56,7 @@ function AdminDashboard() {
   // 🔥 FETCH REGISTRATIONS
   const fetchRegistrations = async () => {
     try {
-      const res = await axios.get("http://localhost:8081/api/registrations");
+      const res = await axios.get("https://fsad-backend-final-epfs.onrender.com/api/registrations");
       setStats(prev => ({
         ...prev,
         registrations: res.data.length
@@ -79,7 +79,7 @@ function AdminDashboard() {
       return;
     }
 
-    await axios.post("http://localhost:8081/api/workshops", {
+    await axios.post("https://fsad-backend-final-epfs.onrender.com/api/workshops", {
       title,
       trainer,
       date,
@@ -101,7 +101,7 @@ function AdminDashboard() {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure to delete?")) return;
 
-    await axios.delete(`http://localhost:8081/api/workshops/${id}`);
+    await axios.delete(`https://fsad-backend-final-epfs.onrender.com/api/workshops/${id}`);
     alert("Deleted Successfully ✅");
     fetchWorkshops();
   };

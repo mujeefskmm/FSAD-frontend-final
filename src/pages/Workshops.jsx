@@ -23,7 +23,7 @@ function Workshops() {
   }
 
   useEffect(() => {
-    axios.get("http://localhost:8081/api/workshops")
+    axios.get("https://fsad-backend-final-epfs.onrender.com/api/workshops")
       .then(res => setWorkshops(res.data))
       .catch(err => console.log(err));
   }, []);
@@ -31,7 +31,7 @@ function Workshops() {
   useEffect(() => {
     if (user && user.role !== "admin") {
       axios
-        .get(`http://localhost:8081/api/registrations/${user.id}`)
+        .get(`https://fsad-backend-final-epfs.onrender.com/api/registrations/${user.id}`)
         .then(res => {
           const ids = res.data.map(r => r.workshopId);
           setRegisteredIds(ids);
@@ -55,7 +55,7 @@ function Workshops() {
 
   const handleSubmit = async () => {
     try {
-      await axios.post("http://localhost:8081/api/registrations", {
+      await axios.post("https://fsad-backend-final-epfs.onrender.com/api/registrations", {
         userId: user.id,
         workshopId: selectedWorkshop.id
       });
@@ -70,7 +70,7 @@ function Workshops() {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete(`http://localhost:8081/api/workshops/${id}`);
+    await axios.delete(`https://fsad-backend-final-epfs.onrender.com/api/workshops/${id}`);
     setWorkshops(workshops.filter(w => w.id !== id));
   };
 

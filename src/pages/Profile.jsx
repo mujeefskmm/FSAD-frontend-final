@@ -14,7 +14,7 @@ function Profile() {
   const handleSave = async () => {
     try {
       const res = await axios.put(
-        `http://localhost:8081/api/users/${user.id}`,
+        `https://fsad-backend-final-epfs.onrender.com/api/users/${user.id}`,
         user
       );
 

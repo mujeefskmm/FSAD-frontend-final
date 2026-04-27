@@ -21,7 +21,7 @@ function Signup() {
     }
 
     try {
-      const res = await axios.post("http://localhost:8081/api/auth/signup", {
+      const res = await axios.post("https://fsad-backend-final-epfs.onrender.com/api/auth/signup", {
         name,
         email,
         password,

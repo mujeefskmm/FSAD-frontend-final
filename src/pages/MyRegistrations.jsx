@@ -11,14 +11,14 @@ function MyRegistrations() {
     if (!user) return;
 
     axios
-      .get(`http://localhost:8081/api/registrations/${user.id}`)
+      .get(`https://fsad-backend-final-epfs.onrender.com/api/registrations/${user.id}`)
       .then((res) => setRegistrations(res.data))
       .catch((err) => console.log(err));
   }, [user]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:8081/api/workshops")
+      .get("https://fsad-backend-final-epfs.onrender.com/api/workshops")
       .then((res) => setWorkshops(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -33,7 +33,7 @@ function MyRegistrations() {
 
     try {
       await axios.delete(
-        `http://localhost:8081/api/registrations?userId=${user.id}&workshopId=${workshopId}`
+        `https://fsad-backend-final-epfs.onrender.com/api/registrations?userId=${user.id}&workshopId=${workshopId}`
       );
 
       setRegistrations((prev) =>
